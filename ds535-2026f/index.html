@@ -136,6 +136,11 @@
   tbody tr:last-child td{border-bottom:none}
   td.wk{font-family:var(--serif);color:var(--faint);width:46px}
   tr.pres td.wk,tr.pres td:nth-child(2){color:var(--navy)}
+  .pday{margin-top:7px}
+  .pd{display:block;font-size:11px;letter-spacing:.06em;color:var(--faint);margin-bottom:3px}
+  .ppr{font-size:12.5px;color:var(--muted);line-height:1.4;margin-bottom:3px;padding-left:14px;
+    text-indent:-14px}
+  .pn{font-family:var(--serif);color:var(--navy);margin-right:4px}
   .duecell{color:var(--muted);font-size:12.5px}
   .datecell{white-space:nowrap;color:var(--muted);font-size:12.5px}
 
@@ -217,12 +222,12 @@
 <nav>
   <div class="navrow" id="nav">
     <a href="#info">Course info</a>
-    <a href="#deadlines">Deadlines</a>
-    <a href="#grading">Grading</a>
     <a href="#presentation">Presentation</a>
     <a href="#review">Review</a>
     <a href="#project">Project</a>
     <a href="#schedule">Schedule</a>
+    <a href="#deadlines">Deadlines</a>
+    <a href="#grading">Grading</a>
     <a href="#materials">Materials</a>
     <a href="#links">Links</a>
   </div>
@@ -291,15 +296,6 @@
       </ul>
     </div>
   </section>
-
-  <!-- ============ DEADLINES ============ -->
-  <section id="deadlines">
-    <h2>Deadlines</h2>
-    <p class="section-note">Everything with a due date, in order.<span class="noprint"> Days remaining update automatically.</span></p>
-    <div class="card" id="deadline-list"></div>
-  </section>
-
-  
 
   <!-- ============ PRESENTATION ============ -->
   <section id="presentation">
@@ -410,7 +406,7 @@
   <!-- ============ SCHEDULE ============ -->
   <section id="schedule">
     <h2>Course schedule</h2>
-    <p class="section-note">Assignments are due at the end of the week shown. Zoom live classes run in Weeks 9–16.</p>
+    <p class="section-note">Assignments are due at the end of the week shown. Zoom live classes run in Weeks 9–16, with two papers presented per class.</p>
     <div class="tablewrap">
       <table>
         <thead>
@@ -421,6 +417,12 @@
     </div>
   </section>
 
+  <!-- ============ DEADLINES ============ -->
+  <section id="deadlines">
+    <h2>Deadlines</h2>
+    <p class="section-note">Everything with a due date, in order.<span class="noprint"> Days remaining update automatically.</span></p>
+    <div class="card" id="deadline-list"></div>
+  </section>
 
   <!-- ============ GRADING ============ -->
   <section id="grading">
@@ -539,12 +541,12 @@
     [6,  'Node-level network embedding', '[Review] Review due (1st round)<br>Presentation paper selection', ''],
     [7,  'Graph neural networks / advanced topics in GNN', '', ''],
     [8,  'Applications of graph machine learning', '[Review] Peer evaluation', ''],
-    [9,  'Paper presentation', '', '10/26, 10/28'],
-    [10, 'Paper presentation', '[Project] Progress report', '11/2, 11/4'],
-    [11, 'Paper presentation', '', '11/9, 11/11'],
-    [12, 'Paper presentation', '[Review] Review due (2nd round)', '11/16, 11/18'],
-    [13, 'Paper presentation', '', '11/23, 11/25'],
-    [14, 'Paper presentation', '', '11/30, 12/2'],
+    [9,  'Paper presentation<div class="pday"><span class="pd">10/26</span><div class="ppr"><span class="pn">#1</span>Negative Sampling From the Ground Up: A Redesign for Recommendation</div><div class="ppr"><span class="pn">#2</span>Fixed Aggregation Features Can Rival GNNs</div></div><div class="pday"><span class="pd">10/28</span><div class="ppr"><span class="pn">#3</span>Your Graph Recommenders are Provably Doing Graph Contrastive Learning</div><div class="ppr"><span class="pn">#4</span>OCN: Effectively Utilizing Higher-Order Common Neighbors for Better Link Prediction</div></div>', '', '10/26, 10/28'],
+    [10, 'Paper presentation<div class="pday"><span class="pd">11/2</span><div class="ppr"><span class="pn">#5</span>CCLRec: Consensus-driven Contrastive Learning for LLM-enhanced Graph Recommendation</div><div class="ppr"><span class="pn">#6</span>SIGEM: A Simple yet Effective Similarity based Graph Embedding Method</div></div><div class="pday"><span class="pd">11/4</span><div class="ppr"><span class="pn">#7</span>Scaling Collaborative Filtering with Multimodal Contrastive Fine-tuning</div><div class="ppr"><span class="pn">#8</span>UniGraph: Learning a Unified Cross-Domain Foundation Model for Text-Attributed Graphs</div></div>', '[Project] Progress report', '11/2, 11/4'],
+    [11, 'Paper presentation<div class="pday"><span class="pd">11/9</span><div class="ppr"><span class="pn">#9</span>Adapting Large Vision-Language Models to Visually-Aware Conversational Recommendation</div><div class="ppr"><span class="pn">#10</span>Bridging Input Feature Spaces Towards Graph Foundation Models</div></div><div class="pday"><span class="pd">11/11</span><div class="ppr"><span class="pn">#11</span>Preference-Optimized Retrieval and Ranking for Efficient Multimodal Recommendation</div><div class="ppr"><span class="pn">#12</span>Advancing Graph Foundation Models: A Data-Centric Perspective</div></div>', '', '11/9, 11/11'],
+    [12, 'Paper presentation<div class="pday"><span class="pd">11/16</span><div class="ppr"><span class="pn">#13</span>Taming Recommendation Bias with Causal Intervention on Evolving Personal Popularity</div><div class="ppr"><span class="pn">#14</span>GraphPFN: A Prior-Data Fitted Graph Foundation Model</div></div><div class="pday"><span class="pd">11/18</span><div class="ppr"><span class="pn">#15</span>Test-Time Alignment for Tracking User Interest Shifts in Sequential Recommendation</div><div class="ppr"><span class="pn">#16</span>GraphTOP: Graph Topology-Oriented Prompting for Graph Neural Networks</div></div>', '[Review] Review due (2nd round)', '11/16, 11/18'],
+    [13, 'Paper presentation<div class="pday"><span class="pd">11/23</span><div class="ppr"><span class="pn">#17</span>Semantic IDs for Joint Generative Search and Recommendation</div><div class="ppr"><span class="pn">#18</span>Are we measuring oversmoothing in graph neural networks correctly?</div></div><div class="pday"><span class="pd">11/25</span><div class="ppr"><span class="pn">#19</span>Don&apos;t Waste It: Guiding Generative Recommenders with Structured Human Priors via Multi-head Decoding</div><div class="ppr"><span class="pn">#20</span>Generalizable Insights for Graph Transformers in Theory and Practice</div></div>', '', '11/23, 11/25'],
+    [14, 'Paper presentation<div class="pday"><span class="pd">11/30</span><div class="ppr"><span class="pn">#21</span>ThinkRec: Thinking-based recommendation via LLM</div><div class="ppr"><span class="pn">#22</span>Discrete Bayesian Sample Inference for Graph Generation</div></div><div class="pday"><span class="pd">12/2</span><div class="ppr"><span class="pn">#23</span>AlphaFree: Recommendation Free from Users, IDs, and GNNs</div><div class="ppr"><span class="pn">#24</span>RDB2G-Bench: A Comprehensive Benchmark for Automatic Graph Modeling of Relational Databases</div></div>', '', '11/30, 12/2'],
     [15, 'Project presentation', '[Review] Final peer evaluation', '12/7, 12/9'],
     [16, 'Project presentation', '[Project] Final report', '12/14, 12/16']
   ];
