@@ -522,7 +522,7 @@
   <!-- ============ SCHEDULE ============ -->
   <section id="schedule">
     <h2>Course schedule</h2>
-    <p class="section-note">Assignments are due at the end of the week shown. Zoom live classes run in Weeks 9–16, with two papers presented per class.</p>
+    <p class="section-note">Assignments are due at the end of the week shown. Zoom live classes run in Weeks 9–16, with two papers presented per class. The paper list is read live from the course sheet.</p>
     <div class="tablewrap">
       <table>
         <thead>
@@ -610,7 +610,7 @@
   </section>
 
   <footer>
-    DS535 / AX512 · Fall 2026<span id="updated"></span>
+    DS535 / AX512 · Fall 2026 · Data Science and AI Lab, KAIST — questions go to the instructor or the TAs.<span id="updated"></span>
   </footer>
 </div>
 
@@ -623,13 +623,19 @@
      ------------------------------------------------------------------ */
 
   var LINKS = [
-    { title: 'Presentation paper list',   desc: 'Browse the pre-selected papers and sign up with your teammate', url: 'https://script.google.com/macros/s/AKfycbxIwjnGdALbbXKkua5hJrP5DZw6O6cYRO1XfeXK8rAQt00zGm7D8ocozdUmQcifjEceUQ/exec' },
-    { title: 'Review paper registration', desc: 'Register the paper you found for your review',                   url: 'https://script.google.com/macros/s/AKfycbwNzxARsY7xJcvpyt_IcnNnu7iMUPb0NnC7e7ZZx1nxw8RNSXXtv3vWyp80vSQSnlllgQ/exec' },
-    { title: 'Project team sign-up',      desc: 'Join a team, or see which teams still have room',                url: 'https://script.google.com/macros/s/AKfycbwlv9Tr56XmKQ_Us81mdYKqxwVQ_uG0K1MAe4z8rVRM76YLJOopjrBnHk9nkQrv3y-yvg/exec' },
+    { title: 'Presentation paper list',   desc: 'Browse the pre-selected papers and sign up with your teammate', url: 'https://shorturl.at/MblMy' },
+    { title: 'Review paper registration', desc: 'Register the paper you found for your review',                   url: 'https://shorturl.at/mfpDI' },
+    { title: 'Project team sign-up',      desc: 'Join a team, or see which teams still have room',                                          url: 'https://shorturl.at/cn2bI' },
     { title: 'Report template',           desc: 'ICML 2025 LaTeX template on Overleaf',                            url: 'https://www.overleaf.com/latex/templates/icml2025-template/dhxrkcgkvnkt' },
     { title: 'Live class',                desc: 'Zoom room for presentation weeks',                                url: 'https://kaist.zoom.us/j/9029534311' },
     { title: 'Past course archive',       desc: 'Reviews written by students in previous years',                   url: 'https://dsailatkaist.github.io/index.html' }
   ];
+
+  /* The presentation schedule is read live from this sheet. It must be
+     shared as "anyone with the link can view". If the fetch fails, the
+     schedule baked into SCHEDULE below is shown instead. */
+  var SHEET_ID = '1aGeXhk7vozWrXX3IRIdjIvrljNWLCSwPEjju9xhPD5U';
+  var SHEET_NAME = 'Sheet1';
 
   /* Bump this whenever you change anything on the page. */
   var LAST_UPDATED = '2026-08-27';
@@ -662,10 +668,10 @@
     [8,  'Applications of graph machine learning', '[Review] Peer evaluation', ''],
     [9,  'Paper presentation<div class="pday"><span class="pd">10/26</span><div class="ppr"><a href="https://openreview.net/forum?id=pm52OUEAW6" target="_blank" rel="noopener noreferrer">Negative Sampling From the Ground Up: A Redesign for Recommendation</a><span class="pv">(ICML 2026)</span></div><div class="ppr"><a href="https://arxiv.org/abs/2601.19449" target="_blank" rel="noopener noreferrer">Fixed Aggregation Features Can Rival GNNs</a><span class="pv">(ICML 2026)</span></div></div><div class="pday"><span class="pd">10/28</span><div class="ppr"><a href="https://doi.org/10.1145/3711896.3737182" target="_blank" rel="noopener noreferrer">Your Graph Recommenders are Provably Doing Graph Contrastive Learning</a><span class="pv">(KDD 2025)</span></div><div class="ppr"><a href="https://arxiv.org/abs/2505.19719" target="_blank" rel="noopener noreferrer">OCN: Effectively Utilizing Higher-Order Common Neighbors for Better Link Prediction</a><span class="pv">(NeurIPS 2025)</span></div></div>', '', '10/26, 10/28'],
     [10, 'Paper presentation<div class="pday"><span class="pd">11/2</span><div class="ppr"><a href="https://openreview.net/forum?id=C2i7ciwxKQ" target="_blank" rel="noopener noreferrer">CCLRec: Consensus-driven Contrastive Learning for LLM-enhanced Graph Recommendation</a><span class="pv">(ICML 2026)</span></div><div class="ppr"><a href="https://doi.org/10.1145/3711896.3737128" target="_blank" rel="noopener noreferrer">SIGEM: A Simple yet Effective Similarity based Graph Embedding Method</a><span class="pv">(KDD 2025)</span></div></div><div class="pday"><span class="pd">11/4</span><div class="ppr"><a href="https://doi.org/10.1145/3774904.3792523" target="_blank" rel="noopener noreferrer">Scaling Collaborative Filtering with Multimodal Contrastive Fine-tuning</a><span class="pv">(WWW 2026)</span></div><div class="ppr"><a href="https://arxiv.org/abs/2402.13630" target="_blank" rel="noopener noreferrer">UniGraph: Learning a Unified Cross-Domain Foundation Model for Text-Attributed Graphs</a><span class="pv">(KDD 2025)</span></div></div>', '[Project] Progress report', '11/2, 11/4'],
-    [11, 'Paper presentation<div class="pday"><span class="pd">11/9</span><div class="ppr"><a href="https://arxiv.org/abs/2503.23312" target="_blank" rel="noopener noreferrer">Adapting Large Vision-Language Models to Visually-Aware Conversational Recommendation</a><span class="pv">(KDD 2025)</span></div><div class="ppr"><a href="https://arxiv.org/abs/2605.04834" target="_blank" rel="noopener noreferrer">Bridging Input Feature Spaces Towards Graph Foundation Models</a><span class="pv">(ICLR 2026)</span></div></div><div class="pday"><span class="pd">11/11</span><div class="ppr"><a href="https://cseweb.ucsd.edu/~jmcauley/pdfs/kdd25d.pdf" target="_blank" rel="noopener noreferrer">Preference-Optimized Retrieval and Ranking for Efficient Multimodal Recommendation</a><span class="pv">(KDD 2025)</span></div><div class="ppr"><a href="https://doi.org/10.1145/3711896.3736833" target="_blank" rel="noopener noreferrer">Advancing Graph Foundation Models: A Data-Centric Perspective</a><span class="pv">(KDD 2025)</span></div></div>', '', '11/9, 11/11'],
+    [11, 'Paper presentation<div class="pday"><span class="pd">11/9</span><div class="ppr"><a href="https://arxiv.org/abs/2507.16829" target="_blank" rel="noopener noreferrer">You Don&apos;t Bring Me Flowers: Mitigating Unwanted Recommendations Through Conformal Risk Control</a><span class="pv">(RecSys 2025)</span></div><div class="ppr"><a href="https://arxiv.org/abs/2605.04834" target="_blank" rel="noopener noreferrer">Bridging Input Feature Spaces Towards Graph Foundation Models</a><span class="pv">(ICLR 2026)</span></div></div><div class="pday"><span class="pd">11/11</span><div class="ppr"><a href="https://cseweb.ucsd.edu/~jmcauley/pdfs/kdd25d.pdf" target="_blank" rel="noopener noreferrer">Preference-Optimized Retrieval and Ranking for Efficient Multimodal Recommendation</a><span class="pv">(KDD 2025)</span></div><div class="ppr"><a href="https://doi.org/10.1145/3711896.3736833" target="_blank" rel="noopener noreferrer">Advancing Graph Foundation Models: A Data-Centric Perspective</a><span class="pv">(KDD 2025)</span></div></div>', '', '11/9, 11/11'],
     [12, 'Paper presentation<div class="pday"><span class="pd">11/16</span><div class="ppr"><a href="https://arxiv.org/abs/2505.14310" target="_blank" rel="noopener noreferrer">Taming Recommendation Bias with Causal Intervention on Evolving Personal Popularity</a><span class="pv">(KDD 2025)</span></div><div class="ppr"><a href="https://arxiv.org/abs/2509.21489" target="_blank" rel="noopener noreferrer">GraphPFN: A Prior-Data Fitted Graph Foundation Model</a><span class="pv">(ICML 2026)</span></div></div><div class="pday"><span class="pd">11/18</span><div class="ppr"><a href="https://arxiv.org/abs/2504.01489" target="_blank" rel="noopener noreferrer">Test-Time Alignment for Tracking User Interest Shifts in Sequential Recommendation</a><span class="pv">(RecSys 2025)</span></div><div class="ppr"><a href="https://arxiv.org/abs/2510.22451" target="_blank" rel="noopener noreferrer">GraphTOP: Graph Topology-Oriented Prompting for Graph Neural Networks</a><span class="pv">(NeurIPS 2025)</span></div></div>', '[Review] Review due (2nd round)', '11/16, 11/18'],
-    [13, 'Paper presentation<div class="pday"><span class="pd">11/23</span><div class="ppr"><a href="https://arxiv.org/abs/2508.10478" target="_blank" rel="noopener noreferrer">Semantic IDs for Joint Generative Search and Recommendation</a><span class="pv">(RecSys 2025)</span></div><div class="ppr"><a href="https://openreview.net/pdf?id=r3DOISnvHD" target="_blank" rel="noopener noreferrer">Are we measuring oversmoothing in graph neural networks correctly?</a><span class="pv">(ICLR 2026)</span></div></div><div class="pday"><span class="pd">11/25</span><div class="ppr"><a href="https://arxiv.org/abs/2511.10492" target="_blank" rel="noopener noreferrer">Don&apos;t Waste It: Guiding Generative Recommenders with Structured Human Priors via Multi-head Decoding</a><span class="pv">(WWW 2026)</span></div><div class="ppr"><a href="https://arxiv.org/abs/2511.08028" target="_blank" rel="noopener noreferrer">Generalizable Insights for Graph Transformers in Theory and Practice</a><span class="pv">(NeurIPS 2025)</span></div></div>', '', '11/23, 11/25'],
-    [14, 'Paper presentation<div class="pday"><span class="pd">11/30</span><div class="ppr"><a href="https://arxiv.org/abs/2505.15091" target="_blank" rel="noopener noreferrer">ThinkRec: Thinking-based recommendation via LLM</a><span class="pv">(WWW 2026)</span></div><div class="ppr"><a href="https://arxiv.org/abs/2511.03015" target="_blank" rel="noopener noreferrer">Discrete Bayesian Sample Inference for Graph Generation</a><span class="pv">(ICLR 2026)</span></div></div><div class="pday"><span class="pd">12/2</span><div class="ppr"><a href="https://arxiv.org/abs/2603.02653" target="_blank" rel="noopener noreferrer">AlphaFree: Recommendation Free from Users, IDs, and GNNs</a><span class="pv">(WWW 2026)</span></div><div class="ppr"><a href="https://arxiv.org/abs/2506.01360" target="_blank" rel="noopener noreferrer">RDB2G-Bench: A Comprehensive Benchmark for Automatic Graph Modeling of Relational Databases</a><span class="pv">(NeurIPS 2025)</span></div></div>', '', '11/30, 12/2'],
+    [13, 'Paper presentation<div class="pday"><span class="pd">11/23</span><div class="ppr"><a href="https://arxiv.org/abs/2507.20035" target="_blank" rel="noopener noreferrer">A Non-Parametric Choice Model That Learns How Users Choose Between Recommended Options</a><span class="pv">(RecSys 2025)</span></div><div class="ppr"><a href="https://proceedings.neurips.cc/paper_files/paper/2025/hash/9ddb13ae9150f99298065d889f951014-Abstract-Conference.html" target="_blank" rel="noopener noreferrer">Self-Supervised Learning of Graph Representations for Network Intrusion Detection</a><span class="pv">(NeurIPS 2025)</span></div></div><div class="pday"><span class="pd">11/25</span><div class="ppr"><a href="https://arxiv.org/abs/2511.10492" target="_blank" rel="noopener noreferrer">Don&apos;t Waste It: Guiding Generative Recommenders with Structured Human Priors via Multi-head Decoding</a><span class="pv">(WWW 2026)</span></div><div class="ppr"><a href="https://arxiv.org/abs/2411.06239" target="_blank" rel="noopener noreferrer">Web Scale Graph Mining for Cyber Threat Intelligence</a><span class="pv">(KDD 2025)</span></div></div>', '', '11/23, 11/25'],
+    [14, 'Paper presentation<div class="pday"><span class="pd">11/30</span><div class="ppr"><a href="https://arxiv.org/abs/2505.15091" target="_blank" rel="noopener noreferrer">ThinkRec: Thinking-based recommendation via LLM</a><span class="pv">(WWW 2026)</span></div><div class="ppr"><a href="https://proceedings.neurips.cc/paper_files/paper/2025/hash/09265e2568cf7a6ff47b506acbc2c6eb-Abstract-Conference.html" target="_blank" rel="noopener noreferrer">Association-Focused Path Aggregation for Graph Fraud Detection</a><span class="pv">(NeurIPS 2025)</span></div></div><div class="pday"><span class="pd">12/2</span><div class="ppr"><a href="https://arxiv.org/abs/2603.02653" target="_blank" rel="noopener noreferrer">AlphaFree: Recommendation Free from Users, IDs, and GNNs</a><span class="pv">(WWW 2026)</span></div><div class="ppr"><a href="https://arxiv.org/abs/2510.24788" target="_blank" rel="noopener noreferrer">The Underappreciated Power of Vision Models for Graph Structural Understanding</a><span class="pv">(NeurIPS 2025)</span></div></div>', '', '11/30, 12/2'],
     [15, 'Project presentation', '[Review] Final peer evaluation', '12/7, 12/9'],
     [16, 'Project presentation', '[Project] Final report', '12/14, 12/16']
   ];
@@ -769,6 +775,109 @@
     }).join('');
   }
 
+  /* ---------------- live schedule ---------------- */
+
+  /* Minimal CSV reader: handles quoted fields, embedded commas and newlines. */
+  function parseCsv(text) {
+    var rows = [], row = [], field = '', quoted = false, i = 0;
+    text = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+    while (i < text.length) {
+      var c = text.charAt(i);
+      if (quoted) {
+        if (c === '"') {
+          if (text.charAt(i + 1) === '"') { field += '"'; i += 2; continue; }
+          quoted = false; i++; continue;
+        }
+        field += c; i++; continue;
+      }
+      if (c === '"') { quoted = true; i++; continue; }
+      if (c === ',') { row.push(field); field = ''; i++; continue; }
+      if (c === '\n') { row.push(field); rows.push(row); row = []; field = ''; i++; continue; }
+      field += c; i++;
+    }
+    row.push(field);
+    if (row.length > 1 || row[0] !== '') rows.push(row);
+    return rows;
+  }
+
+  function papersFromCsv(text) {
+    var rows = parseCsv(text);
+    var headerRow = -1;
+    for (var r = 0; r < rows.length && headerRow < 0; r++) {
+      for (var c = 0; c < rows[r].length; c++) {
+        if (rows[r][c].trim().toLowerCase() === 'paper title') { headerRow = r; break; }
+      }
+    }
+    if (headerRow < 0) return null;
+
+    var col = {};
+    rows[headerRow].forEach(function (hd, i) {
+      var k = hd.trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+      if (k && !(k in col)) col[k] = i;
+    });
+    if (col.papertitle === undefined || col.presentationdate === undefined) return null;
+
+    var out = [];
+    for (var j = headerRow + 1; j < rows.length; j++) {
+      var v = rows[j];
+      var pick = function (k) { return col[k] === undefined ? '' : (v[col[k]] || '').trim(); };
+      var title = pick('papertitle');
+      var date = pick('presentationdate');
+      if (!title || !date) continue;
+      out.push({ title: title, date: date, venue: pick('conference'),
+                 year: pick('year'), url: pick('link') });
+    }
+    return out.length ? out : null;
+  }
+
+  /* Rewrites the Content cell of the presentation weeks from live data. */
+  function applyLiveSchedule(papers) {
+    var byDate = {};
+    papers.forEach(function (p) { (byDate[p.date] = byDate[p.date] || []).push(p); });
+
+    var touched = 0;
+    SCHEDULE.forEach(function (row) {
+      var dates = row[3] ? row[3].split(', ') : [];
+      if (!dates.length || !/paper presentation/i.test(row[1])) return;
+      if (!dates.some(function (d) { return byDate[d]; })) return;
+
+      var html = 'Paper presentation';
+      dates.forEach(function (d) {
+        var items = (byDate[d] || []).map(function (p) {
+          var link = /^https?:\/\//i.test(p.url)
+            ? '<a href="' + esc(p.url) + '" target="_blank" rel="noopener noreferrer">'
+              + esc(p.title) + '</a>'
+            : esc(p.title);
+          var venue = [p.venue, p.year].filter(Boolean).join(' ');
+          return '<div class="ppr">' + link
+            + (venue ? '<span class="pv">(' + esc(venue) + ')</span>' : '') + '</div>';
+        }).join('');
+        html += '<div class="pday"><span class="pd">' + esc(d) + '</span>' + items + '</div>';
+      });
+      row[1] = html;
+      touched++;
+    });
+    return touched;
+  }
+
+  function loadLiveSchedule() {
+    if (!SHEET_ID || !window.fetch) return;
+    var url = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID
+      + '/gviz/tq?tqx=out:csv&sheet=' + encodeURIComponent(SHEET_NAME);
+
+    fetch(url, { cache: 'no-store' })
+      .then(function (res) { return res.ok ? res.text() : Promise.reject(res.status); })
+      .then(function (text) {
+        var papers = papersFromCsv(text);
+        if (!papers) throw new Error('no usable rows');
+        if (applyLiveSchedule(papers)) renderSchedule();
+      })
+      .catch(function (err) {
+        /* Keep the schedule that is already on the page. */
+        console.warn('Live schedule unavailable, using the built-in copy:', err);
+      });
+  }
+
   function initNav() {
     var links = Array.prototype.slice.call(document.querySelectorAll('#nav a'));
     var sections = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
@@ -795,6 +904,7 @@
     renderInlineLinks();
     renderUpdated();
     initNav();
+    loadLiveSchedule();
   } catch (e) {
     console.error(e);
   }
