@@ -75,6 +75,15 @@
   .alert{color:#a32020;font-weight:600}
 
   .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:17px;margin-bottom:13px}
+  .fold summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px}
+  .fold summary::-webkit-details-marker{display:none}
+  .fold .fh3{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);
+    font-weight:600}
+  .fold summary:hover .fh3{color:var(--navy)}
+  .fold .ftog{margin-left:auto;font-size:12px;color:var(--navy)}
+  .fold .ftog::after{content:"Show"}
+  .fold[open] .ftog::after{content:"Hide"}
+  .fold[open] summary{margin-bottom:12px}
   .card h3{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:0 0 11px;font-weight:600}
   .cols{display:grid;grid-template-columns:1fr 1fr;gap:13px}
   .cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
@@ -138,9 +147,23 @@
   tr.pres td.wk,tr.pres td:nth-child(2){color:var(--navy)}
   .pday{margin-top:7px}
   .pd{display:block;font-size:11px;letter-spacing:.06em;color:var(--faint);margin-bottom:3px}
-  .ppr{font-size:12.5px;color:var(--muted);line-height:1.4;margin-bottom:3px;padding-left:14px;
-    text-indent:-14px}
-  .pn{font-family:var(--serif);color:var(--navy);margin-right:4px}
+  .ppr{font-size:12.5px;color:var(--muted);line-height:1.4;margin-bottom:4px}
+  .ppr a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line-strong)}
+  .ppr a:hover{color:var(--navy);border-color:var(--navy)}
+  .pv{color:var(--faint);margin-left:5px;white-space:nowrap}
+  .reqs table{min-width:520px;font-size:13.5px}
+  .reqs th:not(:first-child),.reqs td.mk{text-align:center;width:92px}
+  .reqs td.rq{color:var(--ink)}
+  .reqs td.mk{color:var(--line-strong);font-size:15px}
+  .reqs td.mk.on{color:var(--navy)}
+  .reqs .qual{display:block;font-size:11px;color:var(--faint);line-height:1.2;margin-top:1px}
+  .reqs td.mk.lim{color:var(--muted);font-size:12.5px}
+  .reqs tfoot td{border-bottom:none;background:#f4f5f7;color:var(--muted);font-size:12.5px}
+  .reqs tfoot tr:first-child td{border-top:2px solid var(--line-strong);padding-top:11px}
+  .reqs tfoot td.rq{font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--faint);font-weight:600}
+  .reqs tfoot td.mk.lim{color:var(--ink);font-weight:600;font-size:13px}
+  .note-i{color:var(--faint);font-size:12px}
   .duecell{color:var(--muted);font-size:12.5px}
   .datecell{white-space:nowrap;color:var(--muted);font-size:12.5px}
 
@@ -157,12 +180,25 @@
     border-radius:7px;padding:7px 14px;margin-top:9px}
   .zoombtn:hover{background:#16294a}
   .zoombtn .dot{width:7px;height:7px;border-radius:50%;background:#7fd3b4;flex-shrink:0}
-  .callout{background:var(--warn-bg);border:1px solid #e8d9a8;border-radius:var(--radius);
-    padding:12px 14px;font-size:13.5px;color:#6b5615;margin-bottom:13px}
-  .callout strong{color:#59470f}
+  .pres-li{color:var(--navy)}
+  .pres-li .live{display:inline-block;font-size:11px;letter-spacing:.03em;font-weight:600;
+    color:var(--ok-fg);background:var(--ok-bg);border-radius:4px;padding:1px 7px;margin-left:8px;
+    vertical-align:1px}
+  .samples{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .fold .samples{margin-top:2px}
+  .fold[open] > ul.plain{margin-top:2px}
+  .samples.one{grid-template-columns:1fr}
+  .sample{display:block;background:var(--surface);border:1px solid var(--line);
+    border-radius:8px;padding:11px 13px;text-decoration:none;color:var(--ink)}
+  .sample:hover{border-color:var(--navy)}
+  .sample .st{font-weight:600;font-size:13.5px;line-height:1.35;margin-bottom:3px}
+  .sample .sm{font-size:12px;color:var(--muted)}
+  .sample .sm .pdf{color:var(--faint)}
+  @media (max-width:760px){.samples{grid-template-columns:1fr}}
 
   footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--line-strong);
     font-size:12.5px;color:var(--faint)}
+  #updated{display:block;margin-top:5px}
 
   @media (max-width:760px){
     .wrap{padding:0 14px 44px}
@@ -186,6 +222,8 @@
     section > h2,.titlerow h2{font-size:14pt;break-after:avoid}
     .section-note{break-after:avoid}
     .noprint{display:none}
+    .fold .ftog{display:none}
+    .fold > *:not(summary){display:revert}
     .masthead{padding-top:0}
     .masthead h1{font-size:19pt}
     .card,.panel,.tablewrap{border:1px solid #bbb;box-shadow:none}
@@ -204,6 +242,8 @@
     a{color:#000;text-decoration:none;border-bottom:none}
     /* print the destination of every real link so paper copies stay usable */
     .linkcard::after{content:" (" attr(href) ")";font-size:8pt;color:#555;word-break:break-all}
+    .samples{display:block}
+    .sample{border:1px solid #bbb;margin-bottom:6pt}
     .linkcard{border:1px solid #bbb;margin-bottom:6pt}
     footer{margin-top:18pt;break-inside:avoid}
   }
@@ -311,7 +351,6 @@
           <li>Teams of 2 students &mdash; a few teams of 3, since 50 students share 24 papers</li>
           <li>25 minutes + 5 minutes Q&amp;A and discussion</li>
           <li>Two teams present per class</li>
-          <li>Cover a review of the paper plus your own research idea</li>
         </ul>
       </div>
       <div class="card">
@@ -323,6 +362,36 @@
         </ul>
       </div>
     </div>
+
+    <div class="card">
+      <details class="fold">
+        <summary><span class="fh3">What each presentation must cover</span><span class="ftog"></span></summary>
+        <ul class="plain">
+          <li><strong>The whole paper.</strong> The problem, the method, the experiments and what
+            they show &mdash; enough that the class can follow without having read it.</li>
+          <li><strong>The presentation focus, in depth.</strong> Each paper on the list has a focus
+            assigned to it. That is the part your audience is there for, so give it the most time.</li>
+          <li><strong>Your own research idea.</strong> Where would you take this next? A limitation
+            worth attacking, an extension, a different setting.</li>
+        </ul>
+      </details>
+    </div>
+
+    <div class="card">
+      <details class="fold">
+        <summary><span class="fh3">Sample paper presentations from previous years</span><span class="ftog"></span></summary>
+      <div class="samples">
+        <a class="sample" href="samples/presentation_sample_1.pdf" target="_blank" rel="noopener noreferrer">
+          <div class="st">Sample 1</div>
+          <div class="sm">Paper presentation slides <span class="pdf">&middot; PDF</span></div>
+        </a>
+        <a class="sample" href="samples/presentation_sample_2.pdf" target="_blank" rel="noopener noreferrer">
+          <div class="st">Sample 2</div>
+          <div class="sm">Paper presentation slides <span class="pdf">&middot; PDF</span></div>
+        </a>
+      </div>
+      </details>
+    </div>
   </section>
 
   <!-- ============ REVIEW ============ -->
@@ -331,7 +400,7 @@
       <h2>Paper review</h2>
       <a class="titlelink" id="link-review" target="_blank" rel="noopener noreferrer">Register your paper<span class="arrow">&#8599;</span></a>
     </div>
-    <p class="section-note">You find the paper yourself, write a full review, and revise it after peer feedback.</p>
+    <p class="section-note">You find the paper yourself, write a full review, and revise it after peer feedback. Other students read and score it, so write it for that audience.</p>
 
     <div class="cols">
       <div class="card">
@@ -354,9 +423,29 @@
         </ul>
       </div>
     </div>
-    <div class="callout">
-      Your review is read and scored by other students, so write it for that audience — reviews from past years are archived at
-      <a href="https://dsailatkaist.github.io/index.html" target="_blank" rel="noopener">dsailatkaist.github.io</a>.
+
+    <div class="card">
+      <details class="fold">
+        <summary><span class="fh3">What each review must cover</span><span class="ftog"></span></summary>
+        <ul class="plain">
+          <li><strong>The whole paper.</strong> Problem, why it is hard, the method with its
+            notation and equations, the experiments. Nothing skipped.</li>
+          <li><strong>In your own words.</strong> Write for a classmate who has not read it. If
+            something took you an hour to understand, that is the part to explain.</li>
+          <li><strong>Your own take.</strong> What the paper contributes, and where its limits are.</li>
+        </ul>
+      </details>
+    </div>
+    <div class="card">
+      <details class="fold">
+        <summary><span class="fh3">Sample reviews from previous years</span><span class="ftog"></span></summary>
+      <div class="samples one">
+        <a class="sample" href="https://dsailatkaist.github.io/index.html" target="_blank" rel="noopener noreferrer">
+          <div class="st">Awesome Reviews &mdash; the course archive</div>
+          <div class="sm">Reviews written by students in DS535 and earlier courses</div>
+        </a>
+      </div>
+      </details>
     </div>
   </section>
 
@@ -372,7 +461,7 @@
           <a class="cardlink" id="link-team" target="_blank" rel="noopener noreferrer">Team sign-up<span class="arrow">&#8599;</span></a>
         </div>
         <ul class="plain">
-          <li>4&ndash;5 students per team</li>
+          <li>4&ndash;5 students per team, 12 teams in total</li>
           <li>Team decision due <strong>9/13</strong></li>
           <li>Any topic in recommender systems or graph ML</li>
         </ul>
@@ -385,21 +474,48 @@
         <ul class="plain">
           <li>Proposal report — 10/4, 1 page</li>
           <li>Progress report — 11/8, no page limit</li>
-          <li>Final presentation — 12/7, 12/9, 12/14, 12/16</li>
-          <li>Final report + source code — 12/20, max 8 pages excluding references and appendix</li>
+          <li>Final report &mdash; 12/20, max 8 pages excluding references and appendix</li>
+          <li class="pres-li"><strong>Final presentation</strong> — 12/7, 12/9, 12/14, 12/16<span class="live">live on Zoom</span></li>
         </ul>
       </div>
     </div>
 
     <div class="card">
-      <h3>What the progress report must cover</h3>
-      <ul class="plain">
-        <li><strong>Task</strong> — what problem are you solving?</li>
-        <li><strong>Why is it hard?</strong> — why do current approaches fail?</li>
-        <li><strong>Method</strong> — what are the key components of your approach?</li>
-        <li><strong>Preliminary results</strong></li>
-        <li><strong>Future direction</strong></li>
-      </ul>
+      <details class="fold">
+        <summary><span class="fh3">What each report must cover</span><span class="ftog"></span></summary>
+      <p class="sub">Each report builds on the one before it. The final report is a full research
+        paper &mdash; the version you could submit to a conference.</p>
+      <div class="tablewrap reqs">
+        <table>
+          <thead>
+            <tr><th>Content</th><th>Proposal</th><th>Progress</th><th>Final</th></tr>
+          </thead>
+          <tbody><tr><td class="rq">Task &mdash; what problem are you solving?</td><td class="mk on">&#9679;</td><td class="mk on">&#9679;</td><td class="mk on">&#9679;</td></tr><tr><td class="rq">Why is it hard? &mdash; why do current approaches fail?</td><td class="mk on">&#9679;</td><td class="mk on">&#9679;</td><td class="mk on">&#9679;</td></tr><tr><td class="rq">Data &mdash; does a real dataset exist, and can you get it?</td><td class="mk on">&#9679;</td><td class="mk">&middot;</td><td class="mk">&middot;</td></tr><tr><td class="rq">Related work &mdash; how yours differs from existing papers</td><td class="mk">&middot;</td><td class="mk on">&#9679;</td><td class="mk on">&#9679;</td></tr><tr><td class="rq">Method &mdash; the key components of your approach</td><td class="mk">&middot;</td><td class="mk on">&#9679;</td><td class="mk on">&#9679;</td></tr><tr><td class="rq">Experimental setup &mdash; datasets, baselines, metrics, settings</td><td class="mk">&middot;</td><td class="mk on">&#9679;</td><td class="mk on">&#9679;</td></tr><tr><td class="rq">Experimental result</td><td class="mk">&middot;</td><td class="mk on">&#9679;<span class="qual">preliminary</span></td><td class="mk on">&#9679;<span class="qual">final</span></td></tr><tr><td class="rq">Future direction until the final report</td><td class="mk">&middot;</td><td class="mk on">&#9679;</td><td class="mk">&middot;</td></tr><tr><td class="rq">Conclusion &amp; Limitations</td><td class="mk">&middot;</td><td class="mk">&middot;</td><td class="mk on">&#9679;</td></tr><tr><td class="rq">Contribution of each member</td><td class="mk">&middot;</td><td class="mk">&middot;</td><td class="mk on">&#9679;</td></tr><tr><td class="rq">Source code &mdash; a GitHub link at the end of the abstract</td><td class="mk">&middot;</td><td class="mk">&middot;</td><td class="mk on">&#9679;</td></tr></tbody>
+          <tfoot>
+            <tr><td class="rq">Length</td><td class="mk lim">1 page</td>
+              <td class="mk lim">no limit</td><td class="mk lim">max 8 pages</td></tr>
+            <tr><td class="rq">Due</td><td class="mk lim">10/4</td>
+              <td class="mk lim">11/8</td><td class="mk lim">12/20</td></tr>
+          </tfoot>
+        </table>
+        </div>
+      </details>
+    </div>
+
+    <div class="card">
+      <details class="fold">
+        <summary><span class="fh3">Sample project presentations from previous years</span><span class="ftog"></span></summary>
+      <div class="samples">
+        <a class="sample" href="samples/final_sample_1.pdf" target="_blank" rel="noopener noreferrer">
+          <div class="st">Sample 1</div>
+          <div class="sm">Project presentation slides <span class="pdf">&middot; PDF</span></div>
+        </a>
+        <a class="sample" href="samples/final_sample_2.pdf" target="_blank" rel="noopener noreferrer">
+          <div class="st">Sample 2</div>
+          <div class="sm">Project presentation slides <span class="pdf">&middot; PDF</span></div>
+        </a>
+      </div>
+      </details>
     </div>
   </section>
 
@@ -448,7 +564,7 @@
         <div class="bar"><span style="width:20%"></span></div>
         <ul>
           <li>Video watching time 5% · Participation in peer evaluations 5%</li>
-          <li><strong>Asking questions and joining discussions during presentations — 10%.</strong> This one is easy to forget and hard to make up.</li>
+          <li><strong>Asking questions and joining discussions during presentations — 10%</strong></li>
         </ul>
       </div>
       <div class="grade">
@@ -494,7 +610,7 @@
   </section>
 
   <footer>
-    DS535 / AX512 · Fall 2026 · Data Science and AI Lab, KAIST — questions go to the instructor or the TAs.
+    DS535 / AX512 · Fall 2026 · Data Science and AI Lab, KAIST — questions go to the instructor or the TAs.<span id="updated"></span>
   </footer>
 </div>
 
@@ -515,6 +631,9 @@
     { title: 'Past course archive',       desc: 'Reviews written by students in previous years',                   url: 'https://dsailatkaist.github.io/index.html' }
   ];
 
+  /* Bump this whenever you change anything on the page. */
+  var LAST_UPDATED = '2026-08-27';
+
   var YEAR = 2026;
 
   /* "link" refers to a LINKS title above — nothing is duplicated. Leave it out
@@ -522,14 +641,14 @@
   var DEADLINES = [
     { date: '9/13',  tag: 'Project', name: 'Team decision',                 link: 'Project team sign-up' },
     { date: '9/20',  tag: 'Review',  name: 'Paper selection',               link: 'Review paper registration' },
-    { date: '10/4',  tag: 'Project', name: 'Proposal report',               link: 'Report template' },
+    { date: '10/4',  tag: 'Project', name: 'Proposal report' },
     { date: '10/11', tag: 'Review',  name: 'Review due — 1st round' },
     { date: '10/11', tag: 'Present', name: 'Presentation paper selection',  link: 'Presentation paper list' },
     { date: '10/25', tag: 'Review',  name: 'Peer evaluation' },
-    { date: '11/8',  tag: 'Project', name: 'Progress report',               link: 'Report template' },
+    { date: '11/8',  tag: 'Project', name: 'Progress report' },
     { date: '11/22', tag: 'Review',  name: 'Review due — 2nd round' },
     { date: '12/13', tag: 'Review',  name: 'Final peer evaluation' },
-    { date: '12/20', tag: 'Project', name: 'Final report and source code',  link: 'Report template' }
+    { date: '12/20', tag: 'Project', name: 'Final report and source code' }
   ];
 
   var SCHEDULE = [
@@ -541,12 +660,12 @@
     [6,  'Node-level network embedding', '[Review] Review due (1st round)<br>Presentation paper selection', ''],
     [7,  'Graph neural networks / advanced topics in GNN', '', ''],
     [8,  'Applications of graph machine learning', '[Review] Peer evaluation', ''],
-    [9,  'Paper presentation<div class="pday"><span class="pd">10/26</span><div class="ppr"><span class="pn">#1</span>Negative Sampling From the Ground Up: A Redesign for Recommendation</div><div class="ppr"><span class="pn">#2</span>Fixed Aggregation Features Can Rival GNNs</div></div><div class="pday"><span class="pd">10/28</span><div class="ppr"><span class="pn">#3</span>Your Graph Recommenders are Provably Doing Graph Contrastive Learning</div><div class="ppr"><span class="pn">#4</span>OCN: Effectively Utilizing Higher-Order Common Neighbors for Better Link Prediction</div></div>', '', '10/26, 10/28'],
-    [10, 'Paper presentation<div class="pday"><span class="pd">11/2</span><div class="ppr"><span class="pn">#5</span>CCLRec: Consensus-driven Contrastive Learning for LLM-enhanced Graph Recommendation</div><div class="ppr"><span class="pn">#6</span>SIGEM: A Simple yet Effective Similarity based Graph Embedding Method</div></div><div class="pday"><span class="pd">11/4</span><div class="ppr"><span class="pn">#7</span>Scaling Collaborative Filtering with Multimodal Contrastive Fine-tuning</div><div class="ppr"><span class="pn">#8</span>UniGraph: Learning a Unified Cross-Domain Foundation Model for Text-Attributed Graphs</div></div>', '[Project] Progress report', '11/2, 11/4'],
-    [11, 'Paper presentation<div class="pday"><span class="pd">11/9</span><div class="ppr"><span class="pn">#9</span>Adapting Large Vision-Language Models to Visually-Aware Conversational Recommendation</div><div class="ppr"><span class="pn">#10</span>Bridging Input Feature Spaces Towards Graph Foundation Models</div></div><div class="pday"><span class="pd">11/11</span><div class="ppr"><span class="pn">#11</span>Preference-Optimized Retrieval and Ranking for Efficient Multimodal Recommendation</div><div class="ppr"><span class="pn">#12</span>Advancing Graph Foundation Models: A Data-Centric Perspective</div></div>', '', '11/9, 11/11'],
-    [12, 'Paper presentation<div class="pday"><span class="pd">11/16</span><div class="ppr"><span class="pn">#13</span>Taming Recommendation Bias with Causal Intervention on Evolving Personal Popularity</div><div class="ppr"><span class="pn">#14</span>GraphPFN: A Prior-Data Fitted Graph Foundation Model</div></div><div class="pday"><span class="pd">11/18</span><div class="ppr"><span class="pn">#15</span>Test-Time Alignment for Tracking User Interest Shifts in Sequential Recommendation</div><div class="ppr"><span class="pn">#16</span>GraphTOP: Graph Topology-Oriented Prompting for Graph Neural Networks</div></div>', '[Review] Review due (2nd round)', '11/16, 11/18'],
-    [13, 'Paper presentation<div class="pday"><span class="pd">11/23</span><div class="ppr"><span class="pn">#17</span>Semantic IDs for Joint Generative Search and Recommendation</div><div class="ppr"><span class="pn">#18</span>Are we measuring oversmoothing in graph neural networks correctly?</div></div><div class="pday"><span class="pd">11/25</span><div class="ppr"><span class="pn">#19</span>Don&apos;t Waste It: Guiding Generative Recommenders with Structured Human Priors via Multi-head Decoding</div><div class="ppr"><span class="pn">#20</span>Generalizable Insights for Graph Transformers in Theory and Practice</div></div>', '', '11/23, 11/25'],
-    [14, 'Paper presentation<div class="pday"><span class="pd">11/30</span><div class="ppr"><span class="pn">#21</span>ThinkRec: Thinking-based recommendation via LLM</div><div class="ppr"><span class="pn">#22</span>Discrete Bayesian Sample Inference for Graph Generation</div></div><div class="pday"><span class="pd">12/2</span><div class="ppr"><span class="pn">#23</span>AlphaFree: Recommendation Free from Users, IDs, and GNNs</div><div class="ppr"><span class="pn">#24</span>RDB2G-Bench: A Comprehensive Benchmark for Automatic Graph Modeling of Relational Databases</div></div>', '', '11/30, 12/2'],
+    [9,  'Paper presentation<div class="pday"><span class="pd">10/26</span><div class="ppr"><a href="https://openreview.net/forum?id=pm52OUEAW6" target="_blank" rel="noopener noreferrer">Negative Sampling From the Ground Up: A Redesign for Recommendation</a><span class="pv">(ICML 2026)</span></div><div class="ppr"><a href="https://arxiv.org/abs/2601.19449" target="_blank" rel="noopener noreferrer">Fixed Aggregation Features Can Rival GNNs</a><span class="pv">(ICML 2026)</span></div></div><div class="pday"><span class="pd">10/28</span><div class="ppr"><a href="https://doi.org/10.1145/3711896.3737182" target="_blank" rel="noopener noreferrer">Your Graph Recommenders are Provably Doing Graph Contrastive Learning</a><span class="pv">(KDD 2025)</span></div><div class="ppr"><a href="https://arxiv.org/abs/2505.19719" target="_blank" rel="noopener noreferrer">OCN: Effectively Utilizing Higher-Order Common Neighbors for Better Link Prediction</a><span class="pv">(NeurIPS 2025)</span></div></div>', '', '10/26, 10/28'],
+    [10, 'Paper presentation<div class="pday"><span class="pd">11/2</span><div class="ppr"><a href="https://openreview.net/forum?id=C2i7ciwxKQ" target="_blank" rel="noopener noreferrer">CCLRec: Consensus-driven Contrastive Learning for LLM-enhanced Graph Recommendation</a><span class="pv">(ICML 2026)</span></div><div class="ppr"><a href="https://doi.org/10.1145/3711896.3737128" target="_blank" rel="noopener noreferrer">SIGEM: A Simple yet Effective Similarity based Graph Embedding Method</a><span class="pv">(KDD 2025)</span></div></div><div class="pday"><span class="pd">11/4</span><div class="ppr"><a href="https://doi.org/10.1145/3774904.3792523" target="_blank" rel="noopener noreferrer">Scaling Collaborative Filtering with Multimodal Contrastive Fine-tuning</a><span class="pv">(WWW 2026)</span></div><div class="ppr"><a href="https://arxiv.org/abs/2402.13630" target="_blank" rel="noopener noreferrer">UniGraph: Learning a Unified Cross-Domain Foundation Model for Text-Attributed Graphs</a><span class="pv">(KDD 2025)</span></div></div>', '[Project] Progress report', '11/2, 11/4'],
+    [11, 'Paper presentation<div class="pday"><span class="pd">11/9</span><div class="ppr"><a href="https://arxiv.org/abs/2503.23312" target="_blank" rel="noopener noreferrer">Adapting Large Vision-Language Models to Visually-Aware Conversational Recommendation</a><span class="pv">(KDD 2025)</span></div><div class="ppr"><a href="https://arxiv.org/abs/2605.04834" target="_blank" rel="noopener noreferrer">Bridging Input Feature Spaces Towards Graph Foundation Models</a><span class="pv">(ICLR 2026)</span></div></div><div class="pday"><span class="pd">11/11</span><div class="ppr"><a href="https://cseweb.ucsd.edu/~jmcauley/pdfs/kdd25d.pdf" target="_blank" rel="noopener noreferrer">Preference-Optimized Retrieval and Ranking for Efficient Multimodal Recommendation</a><span class="pv">(KDD 2025)</span></div><div class="ppr"><a href="https://doi.org/10.1145/3711896.3736833" target="_blank" rel="noopener noreferrer">Advancing Graph Foundation Models: A Data-Centric Perspective</a><span class="pv">(KDD 2025)</span></div></div>', '', '11/9, 11/11'],
+    [12, 'Paper presentation<div class="pday"><span class="pd">11/16</span><div class="ppr"><a href="https://arxiv.org/abs/2505.14310" target="_blank" rel="noopener noreferrer">Taming Recommendation Bias with Causal Intervention on Evolving Personal Popularity</a><span class="pv">(KDD 2025)</span></div><div class="ppr"><a href="https://arxiv.org/abs/2509.21489" target="_blank" rel="noopener noreferrer">GraphPFN: A Prior-Data Fitted Graph Foundation Model</a><span class="pv">(ICML 2026)</span></div></div><div class="pday"><span class="pd">11/18</span><div class="ppr"><a href="https://arxiv.org/abs/2504.01489" target="_blank" rel="noopener noreferrer">Test-Time Alignment for Tracking User Interest Shifts in Sequential Recommendation</a><span class="pv">(RecSys 2025)</span></div><div class="ppr"><a href="https://arxiv.org/abs/2510.22451" target="_blank" rel="noopener noreferrer">GraphTOP: Graph Topology-Oriented Prompting for Graph Neural Networks</a><span class="pv">(NeurIPS 2025)</span></div></div>', '[Review] Review due (2nd round)', '11/16, 11/18'],
+    [13, 'Paper presentation<div class="pday"><span class="pd">11/23</span><div class="ppr"><a href="https://arxiv.org/abs/2508.10478" target="_blank" rel="noopener noreferrer">Semantic IDs for Joint Generative Search and Recommendation</a><span class="pv">(RecSys 2025)</span></div><div class="ppr"><a href="https://openreview.net/pdf?id=r3DOISnvHD" target="_blank" rel="noopener noreferrer">Are we measuring oversmoothing in graph neural networks correctly?</a><span class="pv">(ICLR 2026)</span></div></div><div class="pday"><span class="pd">11/25</span><div class="ppr"><a href="https://arxiv.org/abs/2511.10492" target="_blank" rel="noopener noreferrer">Don&apos;t Waste It: Guiding Generative Recommenders with Structured Human Priors via Multi-head Decoding</a><span class="pv">(WWW 2026)</span></div><div class="ppr"><a href="https://arxiv.org/abs/2511.08028" target="_blank" rel="noopener noreferrer">Generalizable Insights for Graph Transformers in Theory and Practice</a><span class="pv">(NeurIPS 2025)</span></div></div>', '', '11/23, 11/25'],
+    [14, 'Paper presentation<div class="pday"><span class="pd">11/30</span><div class="ppr"><a href="https://arxiv.org/abs/2505.15091" target="_blank" rel="noopener noreferrer">ThinkRec: Thinking-based recommendation via LLM</a><span class="pv">(WWW 2026)</span></div><div class="ppr"><a href="https://arxiv.org/abs/2511.03015" target="_blank" rel="noopener noreferrer">Discrete Bayesian Sample Inference for Graph Generation</a><span class="pv">(ICLR 2026)</span></div></div><div class="pday"><span class="pd">12/2</span><div class="ppr"><a href="https://arxiv.org/abs/2603.02653" target="_blank" rel="noopener noreferrer">AlphaFree: Recommendation Free from Users, IDs, and GNNs</a><span class="pv">(WWW 2026)</span></div><div class="ppr"><a href="https://arxiv.org/abs/2506.01360" target="_blank" rel="noopener noreferrer">RDB2G-Bench: A Comprehensive Benchmark for Automatic Graph Modeling of Relational Databases</a><span class="pv">(NeurIPS 2025)</span></div></div>', '', '11/30, 12/2'],
     [15, 'Project presentation', '[Review] Final peer evaluation', '12/7, 12/9'],
     [16, 'Project presentation', '[Project] Final report', '12/14, 12/16']
   ];
@@ -633,6 +752,15 @@
     });
   }
 
+  function renderUpdated() {
+    var node = document.getElementById('updated');
+    if (!node || !LAST_UPDATED) return;
+    var p = LAST_UPDATED.split('-');
+    var d = new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]));
+    node.textContent = 'Last updated ' + MONTHS[d.getMonth()] + ' ' + d.getDate()
+      + ', ' + d.getFullYear() + '.';
+  }
+
   function renderLinks() {
     document.getElementById('linkgrid').innerHTML = LINKS.map(function (l) {
       return '<a class="linkcard" href="' + esc(l.url) + '" target="_blank" rel="noopener noreferrer">'
@@ -665,6 +793,7 @@
     renderSchedule();
     renderLinks();
     renderInlineLinks();
+    renderUpdated();
     initNav();
   } catch (e) {
     console.error(e);
