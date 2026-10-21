@@ -422,6 +422,7 @@
     <div class="titlerow">
       <h2>Paper review</h2>
       <a class="titlelink" id="link-review" target="_blank" rel="noopener noreferrer">Register your paper<span class="arrow">&#8599;</span></a>
+      <a class="titlelink" id="link-reviewboard" target="_blank" rel="noopener noreferrer">Review Board<span class="arrow">&#8599;</span></a>
     </div>
     <p class="section-note">You find the paper yourself, write a full review, and revise it after peer feedback. Other students read and score it, so write it for that audience.</p>
 
@@ -652,6 +653,7 @@
   var LINKS = [
     { title: 'Presentation paper list',   desc: 'Browse the pre-selected papers and sign up with your teammate', url: 'https://script.google.com/macros/s/AKfycbxIwjnGdALbbXKkua5hJrP5DZw6O6cYRO1XfeXK8rAQt00zGm7D8ocozdUmQcifjEceUQ/exec' },
     { title: 'Review paper registration', desc: 'Register the paper you found for your review',                   url: 'https://script.google.com/macros/s/AKfycbwNzxARsY7xJcvpyt_IcnNnu7iMUPb0NnC7e7ZZx1nxw8RNSXXtv3vWyp80vSQSnlllgQ/exec' },
+    { title: 'Review Board',              desc: 'Read and score the reviews your classmates wrote',               url: 'https://script.google.com/macros/s/AKfycbw1-Q96PQxwiL-qEKXqjOhzk70O337UNEvZahwmBmIsQX3Rm7b_KjG2587-yCN4F938/exec' },
     { title: 'Project team sign-up',      desc: 'Join a team, or see which teams still have room',                                          url: 'https://script.google.com/macros/s/AKfycbwlv9Tr56XmKQ_Us81mdYKqxwVQ_uG0K1MAe4z8rVRM76YLJOopjrBnHk9nkQrv3y-yvg/exec' },
     { title: 'Report template',           desc: 'ICML 2025 LaTeX template on Overleaf',                            url: 'https://www.overleaf.com/latex/templates/icml2025-template/dhxrkcgkvnkt' },
     { title: 'Live class',                desc: 'Zoom room for presentation weeks',                                url: 'https://kaist.zoom.us/my/cypark' },
@@ -666,7 +668,7 @@
   var SHEET_NAME = 'Sheet1';
 
   /* Bump this whenever you change anything on the page. */
-  var LAST_UPDATED = '2026-08-27';
+  var LAST_UPDATED = '2026-10-21';
 
   var YEAR = 2026;
 
@@ -795,6 +797,7 @@
     var pairs = [
       ['link-presentation', 'Presentation paper list'],
       ['link-review', 'Review paper registration'],
+      ['link-reviewboard', 'Review Board'],
       ['link-template', 'Report template'],
       ['link-team', 'Project team sign-up']
     ];
