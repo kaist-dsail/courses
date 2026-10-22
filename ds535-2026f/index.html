@@ -70,6 +70,9 @@
     border:1px solid #dbe3ef;border-radius:999px;padding:4px 12px;white-space:nowrap}
   .titlelink:hover{background:#e3ebf6;border-color:var(--navy)}
   .titlelink .arrow{color:var(--faint);margin-left:3px}
+  .linkset{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap}
+  .titlelabel{font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;
+    color:var(--navy);white-space:nowrap}
   .cardhead{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:11px}
   .cardhead h3{margin:0}
   .cardlink{font-size:12.5px;color:var(--navy);text-decoration:none;white-space:nowrap;
@@ -240,7 +243,7 @@
     .wrap{max-width:none;padding:0}
     nav{display:none}                       /* sticky bar is useless on paper */
     .zoombtn{display:none}                  /* a button you cannot press */
-    .titlelink,.cardlink{display:none}      /* the URL is printed below instead */
+    .titlelink,.cardlink,.titlelabel{display:none}  /* the URL is printed below instead */
     section{padding-top:13pt}
     section > h2,.titlerow h2{font-size:14pt;break-after:avoid}
     .section-note{break-after:avoid}
@@ -476,7 +479,14 @@
 
   <!-- ============ PROJECT ============ -->
   <section id="project">
-    <h2>Project</h2>
+    <div class="titlerow">
+      <h2>Project</h2>
+      <span class="linkset">
+        <span class="titlelabel">Discussion Session Schedule</span>
+        <a class="titlelink" id="link-disc-proposal" target="_blank" rel="noopener noreferrer">After Proposal Report<span class="arrow">&#8599;</span></a>
+        <a class="titlelink" id="link-disc-progress" target="_blank" rel="noopener noreferrer">After Progress Report<span class="arrow">&#8599;</span></a>
+      </span>
+    </div>
     <p class="section-note">A group project on any topic in recommender systems or graph machine learning. The goal is a research paper.</p>
 
     <div class="cols">
@@ -657,6 +667,8 @@
     { title: 'Review paper registration', desc: 'Register the paper you found for your review',                   url: 'https://script.google.com/macros/s/AKfycbwNzxARsY7xJcvpyt_IcnNnu7iMUPb0NnC7e7ZZx1nxw8RNSXXtv3vWyp80vSQSnlllgQ/exec' },
     { title: 'Review Board',              desc: 'Read and score the reviews your classmates wrote',               url: 'https://script.google.com/macros/s/AKfycbw1-Q96PQxwiL-qEKXqjOhzk70O337UNEvZahwmBmIsQX3Rm7b_KjG2587-yCN4F938/exec' },
     { title: 'Project team sign-up',      desc: 'Join a team, or see which teams still have room',                                          url: 'https://script.google.com/macros/s/AKfycbwlv9Tr56XmKQ_Us81mdYKqxwVQ_uG0K1MAe4z8rVRM76YLJOopjrBnHk9nkQrv3y-yvg/exec' },
+    { title: 'Discussion session (after proposal)', desc: 'Discussion schedule for the weeks after the proposal report',  url: 'https://docs.google.com/spreadsheets/d/1U7qyrzauo2HXSmM9eXBljgXBjA4nF5cKAAxxqtIzubw/edit?gid=0#gid=0' },
+    { title: 'Discussion session (after progress)', desc: 'Discussion schedule for the weeks after the progress report',  url: 'https://docs.google.com/spreadsheets/d/1wtJ3S1Cc517SCDHK-5i3Mm32---ABAr2n0DWhbhhSP0/edit?usp=sharing' },
     { title: 'Report template',           desc: 'ICML 2025 LaTeX template on Overleaf',                            url: 'https://www.overleaf.com/latex/templates/icml2025-template/dhxrkcgkvnkt' },
     { title: 'Live class',                desc: 'Zoom room for presentation weeks',                                url: 'https://kaist.zoom.us/my/cypark' },
     { title: 'KLMS',                      desc: 'Lecture videos, course materials and the class board',        url: 'https://klms.kaist.ac.kr/' },
@@ -802,7 +814,9 @@
       ['link-review', 'Review paper registration'],
       ['link-reviewboard', 'Review Board'],
       ['link-template', 'Report template'],
-      ['link-team', 'Project team sign-up']
+      ['link-team', 'Project team sign-up'],
+      ['link-disc-proposal', 'Discussion session (after proposal)'],
+      ['link-disc-progress', 'Discussion session (after progress)']
     ];
     pairs.forEach(function (p) {
       var node = document.getElementById(p[0]);
