@@ -365,6 +365,7 @@
     <div class="titlerow">
       <h2>Paper presentation</h2>
       <a class="titlelink" id="link-presentation" target="_blank" rel="noopener noreferrer">Browse the paper list<span class="arrow">&#8599;</span></a>
+      <a class="titlelink" id="link-evalform" target="_blank" rel="noopener noreferrer">Evaluation Form<span class="arrow">&#8599;</span></a>
     </div>
     <p class="section-note">Team presentations, live online, starting Week 9 (10/26).</p>
     <div class="cols">
@@ -652,6 +653,7 @@
 
   var LINKS = [
     { title: 'Presentation paper list',   desc: 'Browse the pre-selected papers and sign up with your teammate', url: 'https://script.google.com/macros/s/AKfycbxIwjnGdALbbXKkua5hJrP5DZw6O6cYRO1XfeXK8rAQt00zGm7D8ocozdUmQcifjEceUQ/exec' },
+    { title: 'Evaluation Form',           desc: 'Attendance and peer evaluation for each presentation class',      url: 'https://docs.google.com/forms/d/e/1FAIpQLSfocOLq3k1pC6UQrdlbVBXcbJagY9KX3p6n9fNQq9TbERszKQ/viewform' },
     { title: 'Review paper registration', desc: 'Register the paper you found for your review',                   url: 'https://script.google.com/macros/s/AKfycbwNzxARsY7xJcvpyt_IcnNnu7iMUPb0NnC7e7ZZx1nxw8RNSXXtv3vWyp80vSQSnlllgQ/exec' },
     { title: 'Review Board',              desc: 'Read and score the reviews your classmates wrote',               url: 'https://script.google.com/macros/s/AKfycbw1-Q96PQxwiL-qEKXqjOhzk70O337UNEvZahwmBmIsQX3Rm7b_KjG2587-yCN4F938/exec' },
     { title: 'Project team sign-up',      desc: 'Join a team, or see which teams still have room',                                          url: 'https://script.google.com/macros/s/AKfycbwlv9Tr56XmKQ_Us81mdYKqxwVQ_uG0K1MAe4z8rVRM76YLJOopjrBnHk9nkQrv3y-yvg/exec' },
@@ -668,7 +670,7 @@
   var SHEET_NAME = 'Sheet1';
 
   /* Bump this whenever you change anything on the page. */
-  var LAST_UPDATED = '2026-10-21';
+  var LAST_UPDATED = '2026-10-22';
 
   var YEAR = 2026;
 
@@ -796,6 +798,7 @@
   function renderInlineLinks() {
     var pairs = [
       ['link-presentation', 'Presentation paper list'],
+      ['link-evalform', 'Evaluation Form'],
       ['link-review', 'Review paper registration'],
       ['link-reviewboard', 'Review Board'],
       ['link-template', 'Report template'],
